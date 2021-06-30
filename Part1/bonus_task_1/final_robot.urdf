@@ -1,0 +1,179 @@
+<robot name="quadrobot">
+    <material name="blue">
+        <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+
+    <link name="body">
+        <inertial>
+            <origin xyz="1.0 0.0 15.0" rpy="0.0 0.0 0.0"/>
+            <mass value="1000000"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+        
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="2.0 1.0 0.2"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <link name="leg11">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'11" type="revolute">
+        <origin xyz="0.8 0.4 -0.35" rpy="0.0 0.5 0.0"/>
+        <parent link="body"/>
+        <child link="leg11"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg12">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'12" type="revolute">
+        <origin xyz="0.22 0.0 -0.4" rpy="0.0 -1.0 0.0"/>
+        <parent link="leg11"/>
+        <child link="leg12"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg21">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'21" type="revolute">
+        <origin xyz="-0.8 0.4 -0.35" rpy="0.0 0.5 0.0"/>
+        <parent link="body"/>
+        <child link="leg21"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg22">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'22" type="revolute">
+        <origin xyz="0.22 0.0 -0.4" rpy="0.0 -1.0 0.0"/>
+        <parent link="leg21"/>
+        <child link="leg22"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg31">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'31" type="revolute">
+        <origin xyz="0.8 -0.4 -0.35" rpy="0.0 0.5 0.0"/>
+        <parent link="body"/>
+        <child link="leg31"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg32">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'32" type="revolute">
+        <origin xyz="0.22 0.0 -0.4" rpy="0.0 -1.0 0.0"/>
+        <parent link="leg31"/>
+        <child link="leg32"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg41">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="red">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'41" type="revolute">
+        <origin xyz="-0.8 -0.4 -0.35" rpy="0.0 0.5 0.0"/>
+        <parent link="body"/>
+        <child link="leg41"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+	<link name="leg42">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.5"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0.0 1.0 0.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="leg'42" type="revolute">
+        <origin xyz="0.22 0.0 -0.4" rpy="0.0 -1.0 0.0"/>
+        <parent link="leg41"/>
+        <child link="leg42"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+</robot>

@@ -1,0 +1,401 @@
+<robot name="drone">
+    <link name="body">
+
+	<inertial>
+	    <mass value="0.08903"/>
+	    <inertia
+		  ixx="0.47526"
+		  ixy="0.00"
+		  ixz="-0.03149E-05"
+		  iyy=" 0.21619"
+		  iyz=" -0.00357"
+		  izz=" 0.6615"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+		<mesh filename="Meshes/Body.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/Body.STL"/>
+       </geometry>
+	</collision>
+	</link>
+
+
+	<link name="1motor">
+	
+	<inertial>
+	    <mass value="0.005"/>
+	    <inertia
+		  ixx="-1.71911"
+		  ixy="-0.05441"
+		  ixz="-0.92663"
+		  iyy="-1.82053"
+		  iyz=" 0.94031"
+		  izz="-0.09744"   />
+	</inertial>	
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/motor.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/motor.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="1motor2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="1motor"/>
+	</joint>
+
+	<link name="2motor">
+	<inertial>
+	    <mass value="0.005"/>
+	    <inertia
+		  ixx="-2.33217"
+		  ixy=" 0.17885"
+		  ixz=" 1.21016"
+		  iyy=" -2.73739"
+		  iyz="0.85006"
+		  izz="-0.40123"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/motor2.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/motor2.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="2motor2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="2motor"/>
+	</joint>
+
+	<link name="3motor">
+	<inertial>
+	    <mass value="0.005"/>
+	    <inertia
+		  ixx="0.03377"
+		  ixy=" 1.06647"
+		  ixz=" -0.18476"
+		  iyy=" 1.06647"
+		  iyz=" 0.03602"
+		  izz="-3.51901"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/motor3.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	   <mesh filename="Meshes/motor3.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="3motor2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="3motor"/>
+	</joint>
+
+	<link name="4motor">
+	<inertial>
+	    <mass value="0.005"/>
+	    <inertia
+		  ixx="-0.1112"
+		  ixy="-0.35757"
+		  ixz=" 0.33048"
+		  iyy="-0.9319"
+		  iyz="-0.17079"
+		  izz=" -0.81673"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/motor4.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	   <mesh filename="Meshes/motor4.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="4motor2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="4motor"/>
+	</joint>
+
+	<link name="flight_controller">
+	<inertial>
+	    <mass value="0.002001"/>
+	    <inertia
+		  ixx="-0.52603"
+		  ixy="0.00"
+		  ixz="0.00"
+		  iyy="-0.51192"
+		  iyz="0.1133"
+		  izz="-0.00078"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/FC.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/FC.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="flight_controller2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="flight_controller"/>
+	</joint>
+
+	<link name="battery">
+	<inertial>
+	    <mass value="0.084999 "/>
+	    <inertia
+		  ixx="-9.59089"
+		  ixy="0.00"
+		  ixz="0.00"
+		  iyy="-12.27995"
+		  iyz="-1.98356"
+		  izz=" 4.21169"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Battery.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	 <mesh filename="Meshes/Battery.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="battery2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="battery"/>
+	</joint>
+
+	<link name="raspi">
+	<inertial>
+	    <mass value="0.015"/>
+	    <inertia
+		  ixx="-13.08853"
+		  ixy="0.00"
+		  ixz="0.00"
+		  iyy="-1.09553"
+		  iyz="-3.76969"
+		  izz="-11.89301"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Raspi.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/Raspi.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="raspi2body" type="fixed">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="body"/>
+	<child link="raspi"/>
+	</joint>
+
+	<link name="prop1">
+	<inertial>
+	    <mass value="0.000497"/>
+	    <inertia
+		  ixx=" 0.09633"
+		  ixy=" -0.06151"
+		  ixz="0.03777"
+		  iyy="0.08519"
+		  iyz=" 0.04286"
+		  izz="0.12892"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Prop1.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	   <mesh filename="Meshes/Prop1.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="Prop121Motor" type="continuous">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="1motor"/>
+	<child link="prop1"/>
+	<axis xyz="0 0 1"/>
+	</joint>
+
+	<link name="prop2">
+	<inertial>
+	    <mass value="0.000497 "/>
+	    <inertia
+		  ixx="0.10112"
+		  ixy="-0.06337"
+		  ixz="-0.04219"
+		  iyy=" 0.09299"
+		  iyz="-0.0466"
+		  izz="0.13192"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Prop2.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	 <mesh filename="Meshes/Prop2.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="Prop222Motor" type="continuous">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="2motor"/>
+	<child link="prop2"/>
+	<axis xyz="0 0 1"/>
+	</joint>
+
+	<link name="prop3">
+	<inertial>
+	    <mass value="0.000497"/>
+	    <inertia
+		  ixx="0.1011"
+		  ixy="0.06319"
+		  ixz="-0.04219"
+		  iyy="0.09299"
+		  iyz=" 0.0466"
+		  izz="0.1319"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Prop3.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	  <mesh filename="Meshes/Prop3.STL"/>
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="Prop323Motor" type="continuous">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="3motor"/>
+	<child link="prop3"/>
+	<axis xyz="0 0 1"/>
+	</joint>
+
+	<link name="prop4">
+	<inertial>
+	    <mass value="0.000497"/>
+	    <inertia
+		  ixx="0.09631"
+		  ixy="0.06168"
+		  ixz=" 0.03777"
+		  iyy="0.08519"
+		  iyz="-0.04286"
+		  izz="0.12889"   />
+	</inertial>	  
+	<visual>
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	 <geometry>
+	 	<mesh filename="Meshes/Prop4.STL"/>
+	 </geometry>
+	</visual>
+	<collision>
+	  <origin 
+	     xyz="0 0 0"
+		 rpy="0 0 0" />
+	  <geometry>
+	   <mesh 
+	        filename="Meshes/Prop4.STL"  />
+       </geometry>
+	</collision>
+
+	</link>
+	<joint name="Prop424Motor" type="continuous">
+	 <origin xyz="0 0 0" rpy="0 0 0"/>
+	<parent link="4motor"/>
+	<child link="prop4"/>
+	<axis xyz="0 0 1"/>
+	</joint>
+
+
+</robot>
